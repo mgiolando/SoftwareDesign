@@ -1,4 +1,3 @@
-#Mark Giolando
 def top_row():
 	print '+','-','-','-','-','+','-','-','-','-','+'
 def mid_row():
