@@ -35,6 +35,16 @@ def middle(word):
 
 def is_palindrome(word):
     """Write a good Docstring here."""
-
     # TODO: fill in the body of this function
+    if first(word)==last(word):
+    	if len(word)==1:
+    		print('yes it is')
+    	else:
+    		is_palindrome(middle(word))
+    else:
+	print('No it is not')
+
     return True
+
+if __name__ == '__main__':
+    is_palindrome('cdc')
