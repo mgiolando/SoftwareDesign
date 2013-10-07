@@ -1,4 +1,8 @@
 1. Oreos
 yum
+<<<<<<< HEAD
 
 klfsjd
+=======
+and so on
+>>>>>>> c79bc974e293fddc2f8cfebd44613283884e8b45
