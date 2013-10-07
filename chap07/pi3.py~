@@ -1,0 +1,7 @@
+while True:
+	e=.1
+	print x
+	y=(x+a/x)/2
+	if abs(y-x)<e
+		break
+	x=y
