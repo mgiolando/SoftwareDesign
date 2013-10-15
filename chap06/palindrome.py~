@@ -47,4 +47,4 @@ def is_palindrome(word):
     return True
 
 if __name__ == '__main__':
-    is_palindrome('cddc')
+    is_palindrome('cdc')

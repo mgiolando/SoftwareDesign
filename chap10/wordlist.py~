@@ -28,7 +28,6 @@ def make_word_list2():
     """
     x=8
     t = []
-    t=t+[x]
     return t
 
 
