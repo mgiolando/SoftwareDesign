@@ -4,18 +4,6 @@ def top_row():
 def mid_row():
 	print '|',' ',' ',' ',' ','|',' ',' ',' ',' ','|'
 
-top_row()
-mid_row()
-mid_row()
-mid_row()
-mid_row()
-top_row()
-mid_row()
-mid_row()
-mid_row()
-mid_row()
-top_row()
-
 
 def top_row2():
 	print '+','-','-','-','-','+','-','-','-','-','+','-','-','-','-','+','-','-','-','-','+'
@@ -23,24 +11,15 @@ def mid_row2():
 	print '|',' ',' ',' ',' ','|',' ',' ',' ',' ','|',' ',' ',' ',' ','|',' ',' ',' ',' ','|'
 
 
-top_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-top_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-top_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-top_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-mid_row2()
-top_row2()
+if __name__ == '__main__':
+	top_row()
+	for i in range(2):
+		for j in range(4):
+			mid_row()
+		top_row()
+
+	top_row2()
+	for i in range(4):
+		for j in range(4):
+			mid_row2()
+		top_row2()
