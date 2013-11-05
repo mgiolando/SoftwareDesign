@@ -65,7 +65,7 @@ def new_prefix(prefix,word):
     return prefix[1:]+ (word,)
 
 def cont_word(reps=20,order=2):
-	"""creates a 
+	"""creates a string of words length reps of markov words
 	reps:int
 	order:int
 	returns:string"""

@@ -46,7 +46,8 @@ def process_word(word,order=2):
 	"""Creates a dictionary containing words that follow a pair.
 
 	word:string
-	order:int"""
+	order:int
+	"""
     global prefix
     if len(prefix)<order:
 	prefix+=(word,)
