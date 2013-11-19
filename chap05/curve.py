@@ -1,24 +1,31 @@
-import math
-
-try:
-    # see if Swampy is installed as a package
-    from swampy.TurtleWorld import *
-except ImportError:
-    # otherwise see if the modules are on the PYTHONPATH
-    from TurtleWorld import *
+from swampy.TurtleWorld import *
 
 def turnright(turtle,angle,length):
-	#angle=90
+	"""This function turns the turtle right.
+	turtle: object
+	angle: int
+	length: int
+	"""
 	rt(turtle,angle)
 	fd(turtle,length)
 
 def turnleft(turtle,angle,length):
-	#angle=90
+	"""This function turns the turtle left.
+	turtle: object
+	angle: int
+	length: int
+	"""
 	lt(turtle,angle)
 	fd(turtle,length)
 
 def runningdragon(turtle, length, angle, count):
-	count=count-1
+	"""This function draws a dragon curve.
+	turtle: object
+	angle: int
+	length: int
+	count: int
+	"""
+	count-=1
 	if count>0:
 		turnright(turtle,angle,length)
 		runningdragon(turtle,length,angle,count)
@@ -32,14 +39,14 @@ def runningdragon(turtle, length, angle, count):
 
 
 if __name__ == '__main__':
-    world = TurtleWorld()    
+	world = TurtleWorld()    
 
-    bob = Turtle()
-    bob.delay = 0.001
+	bob = Turtle()
+	bob.delay = 0.001
 
-    length=1
-    angle=45
-    count=8
-    runningdragon(bob, length, angle, count)
+	length=1
+	angle=45
+	count=8
+	runningdragon(bob, length, angle, count)
 
-    wait_for_user()
+	wait_for_user()

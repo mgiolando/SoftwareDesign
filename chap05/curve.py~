@@ -1,30 +1,42 @@
-import math
+from swampy.TurtleWorld import *
 
-try:
-    # see if Swampy is installed as a package
-    from swampy.TurtleWorld import *
-except ImportError:
-    # otherwise see if the modules are on the PYTHONPATH
-    from TurtleWorld import *
-
-
-def turnright(turtle,length,angle):
+def turnright(turtle,angle,length):
+	"""This function turns the turtle right.
+	turtle: object
+	angle: int
+	length: int
+	"""
 	rt(turtle,angle)
 	fd(turtle,length)
-def turnleft(turtle,length,angle):
+
+def turnleft(turtle,angle,length):
+	"""This function turns the turtle left.
+	turtle: object
+	angle: int
+	length: int
+	"""
 	lt(turtle,angle)
 	fd(turtle,length)
-def turnabright(turtle,length):
-#will turn right no matter the angle
-	rt(turtle,90)
-	fd(turtle,length)
-def rundragon(turtle,length,angle,count):
-	count=count-1
+
+def runningdragon(turtle, length, angle, count):
+	"""This function draws a dragon curve.
+	turtle: object
+	angle: int
+	length: int
+	count: int
+	"""
+	count-=1
 	if count>0:
-		turnright(turtle,length,angle)
-		rundragon(turtle,length,angle,count)
-		turnleft(turtle,length,angle)
-		rundragon(turtle,length,angle,count)
+		turnright(turtle,angle,length)
+		runningdragon(turtle,length,angle,count)
+		turnleft(turtle,2*angle,length)
+		runningdragon(turtle,length,-angle,count)
+		turnright(turtle,angle,length)
+	else:
+		fd(turtle,length)
+
+
+
 
 if __name__ == '__main__':
     world = TurtleWorld()    
@@ -32,8 +44,9 @@ if __name__ == '__main__':
     bob = Turtle()
     bob.delay = 0.001
 
-    length=2
-    angle =90
-    count=14
-    rundragon(bob,length,angle,count)
+    length=1
+    angle=45
+    count=8
+    runningdragon(bob, length, angle, count)
+
     wait_for_user()

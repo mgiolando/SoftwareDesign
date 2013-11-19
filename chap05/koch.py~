@@ -1,13 +1,10 @@
-import math
-
-try:
-    # see if Swampy is installed as a package
-    from swampy.TurtleWorld import *
-except ImportError:
-    # otherwise see if the modules are on the PYTHONPATH
-    from TurtleWorld import *
-
+from swampy.TurtleWorld import *
 def koch(turtle, length, angle):
+	"""Draws a Koch curve fractal.
+	turtle: animal
+	length: int
+	angle: int
+	"""
 	if length<3:
 		fd(turtle,length)
 		return
@@ -21,6 +18,11 @@ def koch(turtle, length, angle):
 	
 
 def snowflake(turtle, length,angle):
+	"""This function draws a snowflake. This is done by making a triangle in which each side is a koch curve
+	turtle: animal
+	length: int
+	angle: int
+	"""
 	for i in range (3):
 		koch(turtle,length,angle)
 		rt(turtle,120)
@@ -28,13 +30,14 @@ def snowflake(turtle, length,angle):
 
 
 if __name__ == '__main__':
-    world = TurtleWorld()    
+	world = TurtleWorld()    
 
-    bob = Turtle()
-    bob.delay = 0.001
+	bob = Turtle()
+	bob.delay = 0.001
 
-    length=100
-    angle=85
-    koch(bob, length,angle)
-#    snowflake(bob,length,angle)
-    wait_for_user()
+	length=100
+	angle=85
+	#only koch or snowflake can be run at a time
+	koch(bob, length,angle)
+	#snowflake(bob,length,angle)
+	wait_for_user()
