@@ -1,4 +1,10 @@
 def rotate(a,b):
+	"""Rotates the letters of a word by b.
+	word: string
+	b: int
+	
+	returns: string
+	"""
 	length=len(a)
 	k=0
 	word=[0]*len(a)
