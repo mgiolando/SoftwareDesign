@@ -1,4 +1,11 @@
 def counting(a,b,test_diff):
+	"""If a-b is equal to the test_diff, it returns a 1, if not it returns a 0.
+	a: int
+	b: int
+	test_diff: int
+
+	returns int
+	"""
 	diff=a-b
 	if diff==test_diff:
 		return 1
@@ -6,6 +13,14 @@ def counting(a,b,test_diff):
 		return 0
 
 def is_swaped(a,b,test_diff):
+	"""Tests to see if a and b are reversed numbers.
+
+	a:int
+	b:int
+	test_diff: int
+	
+	returns: int
+	"""
 	af=a/10
 	al=a%10
 	bf=b/10
@@ -13,23 +28,25 @@ def is_swaped(a,b,test_diff):
 	count=0
 	if af==bl and bf==al and a>b and counting(a,b,test_diff)>0:
 		count+=counting(a,b,test_diff)
-		print a,b
+		if abs(a-b)==18:#I found the age difference was 18. Then I came back to add this to print out the times the ages were reversed adn counted to reach the answer.
+			print a,b
 		return 1
 	else:
 		return 0
 	
 def run_tests(test_diff):
+	"""
+	"""
 	count=0
 	for a in range (100):
 		for b in range(100):
 			
 			is_swaped(a,b,test_diff)
 			count+=is_swaped(a,b,test_diff)
-	print count,'count',test_diff,'age diff'
-
+	if count ==8:
+		print test_diff,'age diff'
 
 if __name__ == '__main__':
-    test_diff=18
     for test_diff in range (10):
         run_tests((test_diff+1)*9)
-#There is an 18 year age difference. The woman is 57. There is a strange behavior in this code that it prints the answers twice.
+#There is an 18 year age difference. The woman is 57.

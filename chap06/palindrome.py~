@@ -34,17 +34,22 @@ def middle(word):
 
 
 def is_palindrome(word):
-    """Write a good Docstring here."""
+    """Returns if the input word is the same backwords as forwards. Word must be lowercase.
+
+    word:string
+
+    returns:bool"""
     # TODO: fill in the body of this function
     if first(word)==last(word):
-    	if len(word)==1:
+    	if len(word)<=2:
     		print('yes it is')
     	else:
     		is_palindrome(middle(word))
     else:
 	print('No it is not')
+	return False
 
     return True
 
 if __name__ == '__main__':
-    is_palindrome('cdc')
+    is_palindrome('ppddpP')
