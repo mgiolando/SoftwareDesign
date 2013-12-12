@@ -28,12 +28,12 @@ def interlock3(word,word_list):
 	
 
 if __name__ == '__main__':
-    fin=open('words.txt')
-    word_list=[]
-    for line in fin:
-	entry=line.strip()
-	word_list.append(entry)
-    for word in word_list:
-	interlock(word,word_list)
-        #interlock3(word,word_list)
+	fin=open('words.txt')
+	word_list=[]
+	for line in fin:
+		entry=line.strip()
+		word_list.append(entry)
+	for word in word_list:
+		interlock(word,word_list)
+        	#interlock3(word,word_list)
 
