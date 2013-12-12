@@ -1,20 +1,4 @@
-def rotate(a,b):
-	"""This roates the word a by an integer b.
-	a: string
-	b: integer
-	returns: string
-"""
-	length=len(a)
-	k=0
-	word=[0]*len(a)
-	while k < length:
-		init=ord('a')	#initial letter starting point
-		letterr=ord(a[k])-init	#mispelling to be on safe side
-		m=chr((letterr+b)%26+init)
-		word[k]=m		
-		k=k+1
-	word2=''.join(word)
-	return word2
+from rotate import rotate
 
 def rotate_pair(word2be,word_list):
 	"""This run the program to find the rotated words for the given word.
