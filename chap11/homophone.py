@@ -1,29 +1,30 @@
 from pronounce import read_dictionary
 
-def is_homophone(a,b,saying):
+def is_homophone(word_a,word_b,saying):
 	""" This function checks to see if two words are both homophones and in the list saying
-	a: string
-	b:string
+	word_a: string
+	word_b:string
 	saying: dictionary
 	returns: bool"""
 	#is in pronounce?
-	if a not in saying or b not in saying:
+	if word_a not in saying or word_b not in saying:
 		return False
 	#is same pronounciation
-	asaying=saying[a]
-	bsaying=saying[b]
-	return asaying==bsaying
-def is_crit(a,saying):
+	word_asaying=saying[word_a]
+	word_bsaying=saying[word_b]
+	return word_asaying==word_bsaying
+
+def is_crit(word_a,saying):
 	"""This checks to see if the word that is guessed matches the criteria of the problem. That is to say if it is 5 letters long, has only 1 syllable and is in the dictionary.
-	a: string
-	b: dictionary
+	word_a: string
+	saying: dictionary
 	returns: bool"""
-	if a not in saying:
+	if word_a not in saying:
 		return False
-	pro=saying[a]
+	pro=saying[word_a]
 	t= pro.split( )
 	count=0
-	if len(a)!=5:
+	if len(word_a)!=5:
 		return False
 	count=0
 	for i in range(len(t)):
