@@ -1,16 +1,22 @@
-def rotate(a,b):
-	"""Rotates the letters of a word by b.
-	word: string
-	b: int
+def rotate(word_to_rotate,how_much):
+	"""Rotates the letters of word_to_rotate by how_much.
+	word_to_rotate: string
+	how_much: int
 	
 	returns: string
 	"""
-	length=len(a)
+	how_much-=26*(how_much/26)	
+	
+	length=len(word_to_rotate)
 	k=0
-	word=[0]*len(a)
+	word=[0]*len(word_to_rotate)
 	while k < length:
-		m=chr(ord(a[k])+7)
-		word[k]=m		
+		m_ord=ord(word_to_rotate[k])+how_much
+		if m_ord>122:
+			m_ord-=26
+
+		m_chr=chr(m_ord)
+		word[k]=m_chr		
 		#print m,
 		k=k+1
 	word2=''.join(word)
@@ -20,6 +26,6 @@ def rotate(a,b):
 
 
 if __name__ == '__main__':
-	a='cheer'
-	b=7
-	print rotate(a,b)
+	word_to_rotate='zcheer'
+	how_much=59
+	print rotate(word_to_rotate,how_much)
