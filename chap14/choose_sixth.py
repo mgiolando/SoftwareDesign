@@ -1,5 +1,7 @@
 import urllib
 def run_script():
+    """this runs the script to ask for a zip code and then print out the town location and population
+    """
     var=raw_input("Enter a Zipcode: ")
     address='http://www.uszip.com/zip/'+var
     conn=urllib.urlopen(address)
