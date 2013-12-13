@@ -4,12 +4,13 @@ def make_list():
 	"""makes word list
 	returns: list of strings"""
 	fin=open('words.txt')
-	word_list=[]
+	word_list={}
 	for line in fin:
-		entry=line.strip()
-		word_list.append(entry)
-	word_list.append('i')
-	word_list.append('a')
+		entry=line.strip().lower()
+		word_list[entry]=entry
+	word_list['a']='a'
+	word_list['i']='i'
+	word_list['']=''
 	return word_list
 
 def gen_children(a,word_list):
@@ -18,53 +19,39 @@ def gen_children(a,word_list):
 		test_child=a[:(i)]+a[(i+1):]
 		if test_child in word_list:
 			child.append(test_child)
-		#	print test_child
 	return child
 
-def is_reducible(a,word_list):
-	if a not in word_list:
+def is_reducible(word,word_list):
+	if word not in word_list:
 		return False
-	if a in memo:
-		return memo[a]
+	if word in memo:
+		return memo[word]
 
-#	child=[]
-#	for i in range(len(a)):
-#		test_child=a[:(i)]+a[(i+1):]
-#		#print test_child
-#		if test_child in word_list:
-#			#print test_child
-#			child.append(test_child)
-#			is_reducible(test_child,word_list)
-#removed previous lines of code ^ and placed in seperate function when things were running slow. Questionable effectiveness
-	child =[]
-	for word2 in gen_children(a,word_list):
-		if is_reducible(word2,word_list) !=False:
-			child.append(word2)
+	res =[]
+	for word2 in gen_children(word,word_list):
+		if is_reducible(word2,word_list):
+			res.append(word2)
 			
-	memo[a]=child
-	return child
+	memo[word]=res
+	return res
 
-def gen_reducible(word_list):
-	outi=[]
+def total_reducible(word_list):
+	res=[]
 	for word in word_list:
-		word='sprite'
-		k=is_reducible(word,word_list)
-		outi.append(k)
-	return outi
-
-def is_longest(word_list):
-	all_reducibles=gen_reducible(word_list)
-	redlist=[]
-	#print word_list
-	for word in all_reducibles:
-		redlist.append((len(word),word))
-		
-	redlist.sort(reverse=True)
-	#print redlist[0]
-	return redlist[0]
+		temp=is_reducible(word,word_list)
+		if temp != []:
+			res.append(word)
+	return res
+def longest_reducible(red_list):
+	res=[]
+	for word in red_list:
+		res.append((len(word),word))
+	res.sort(reverse=True)
+	length_of,longest_word=res[0]
+	print longest_word, length_of
+	return res
 
 if __name__ == '__main__':
 	word_list=make_list()
-	print is_longest(word_list)
-
-#something is broken that I can't find. Runs for very long time. Was working up to halfway through gen_reducible so about half of gen_reducible and is_longest is a best guess effort at what the answer might look like
+	red_list=total_reducible(word_list)
+	longest_reducible(red_list)
